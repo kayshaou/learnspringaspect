@@ -18,6 +18,13 @@ public class LearnspringaspectApplication {
 		MembershipDAO membershipDAO = context.getBean("membershipDAO", MembershipDAO.class);
 		accountDao.addSillyAccount();
 		accountDao.addAgain();
+
+		accountDao.setAccountName("acc-name");
+		accountDao.setName("name");
+
+		String n = accountDao.getAccountName();
+		String nn = accountDao.getName();
+
 		membershipDAO.addMemberAccount(new Account("name"));
 
 		accountDao.addSillyAccount(new Account("name"), "=Jake");

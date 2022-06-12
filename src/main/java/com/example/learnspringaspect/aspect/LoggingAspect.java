@@ -3,6 +3,7 @@ package com.example.learnspringaspect.aspect;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;
@@ -13,10 +14,23 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class LoggingAspect {
     // any return type, from dao package, any method name, any number of arguments
-    @Before("execution(* com.example.learnspringaspect.dao.*.*(..))")
+    @Pointcut("execution(* com.example.learnspringaspect.dao.*.*(..))")
+    private void forBefore() {
+    }
 
+    @Pointcut("execution(* com.example.learnspringaspect.dao.*.get*(..))")
+    private void getter(){
+
+    }
+
+    @Pointcut("execution(* com.example.learnspringaspect.dao.*.set*(..))")
+    private void setter(){
+
+    }
+
+    @Before("!forBefore() && (getter() || setter())")
     public void beforeAddAccountAdvice() {
-        log.info("@Before Advice on Account ");
+        log.info("@Before 2 - Advice on Account ");
     }
 
 

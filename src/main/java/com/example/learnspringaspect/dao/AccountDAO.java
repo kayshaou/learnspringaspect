@@ -8,6 +8,30 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class AccountDAO {
 
+    private String name;
+
+    public String getName() {
+        log.info("get "+name);
+        return name;
+    }
+
+    public void setName(String name) {
+        log.info("set "+getName());
+        this.name = name;
+    }
+
+    public String getAccountName() {
+        log.info("get "+accountName);
+        return accountName;
+    }
+
+    public void setAccountName(String accountName) {
+        log.info("set "+accountName);
+        this.accountName = accountName;
+    }
+
+    private String accountName;
+
     public int addSillyAccount() {
         log.info(getClass()+" "+"doing the db work");
         return -1;

@@ -12,4 +12,5 @@ import lombok.Setter;
 
 public class Account {
     private String name;
+    private String serviceCode;
 }

@@ -4,10 +4,26 @@ import com.example.learnspringaspect.Account;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 @Component(value = "accountDAO")
 @Slf4j
 public class AccountDAO {
 
+    public void thisthrowexception() {
+        throw new RuntimeException(" this gets throwns ");
+    }
+    public List<Account> findAccounts()
+    {
+        Account acc = new Account("John1", "silver1");
+        Account acc2 = new Account("John2", "siler2");
+        Account acc3 = new Account("John3", "siler3");
+
+        List<Account> accountList = Arrays.asList(acc, acc2, acc3);
+        return accountList;
+    }
     private String name;
 
     public String getName() {
@@ -16,7 +32,6 @@ public class AccountDAO {
     }
 
     public void setName(String name) {
-        log.info("set "+getName());
         this.name = name;
     }
 

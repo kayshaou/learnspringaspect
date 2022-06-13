@@ -6,7 +6,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;
 
 @Configuration
-//@EnableAspectJAutoProxy
+@EnableAspectJAutoProxy
 @ComponentScan(basePackages="com.example.learnspringaspect")
 public class Config {
 }

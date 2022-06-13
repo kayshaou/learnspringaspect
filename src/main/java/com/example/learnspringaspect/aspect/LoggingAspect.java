@@ -28,10 +28,17 @@ public class LoggingAspect {
 
     }
 
-    @Before("!forBefore() && (getter() || setter())")
-    public void beforeAddAccountAdvice() {
+    @Pointcut("forBefore() && (getter() || setter())")
+    public void onlyGetterSetter() {
+
+    }
+
+    @Pointcut("forBefore() && !(getter() || setter())")
+    public void exceptGetterSetter() {
         log.info("@Before 2 - Advice on Account ");
     }
+
+
 
 
 }
